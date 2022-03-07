@@ -17,7 +17,7 @@ function App(props) {
         {id: 4, name: 'cat1'},
         {id: 5, name: 'cat1'},
         {id: 6, name: 'cat1'},
-        {id: 7, name: 'cat1'},
+        {id: 7, name: 'cat'},
     
     
     ];
