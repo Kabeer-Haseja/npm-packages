@@ -22,7 +22,7 @@ function App(props) {
     
     ];
     const multiList = [
-        {id: 1, name: 'Kabeer'},
+        {id: 1, name: 'Kaber'},
         {id: 2, name: 'Hello'},
         {id: 3, name: 'Hello'},
         {id: 4, name: 'World'},
