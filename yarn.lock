@@ -5335,6 +5335,11 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
+"react-native-a@^1.0.1":
+  "integrity" "sha512-VLA1D93wye+WGB7exVL/HTweJdo1k7igFpWDgTzHjGE/DBImNFxq5iydx5g6Vo0MTg7Jw3/Unh/cGRixUZLAZA=="
+  "resolved" "https://registry.npmjs.org/react-native-a/-/react-native-a-1.0.1.tgz"
+  "version" "1.0.1"
+
 "react-native-actions-sheet@^0.6.0":
   "integrity" "sha512-SkDpazspauhCTS281GGzaS7zW0o0aMc7SiUdgdzq+/fr3KKA87MAFVL2x+6mD60bLEHJUfoUXgK5xvT/vybgYg=="
   "resolved" "https://registry.npmjs.org/react-native-actions-sheet/-/react-native-actions-sheet-0.6.0.tgz"

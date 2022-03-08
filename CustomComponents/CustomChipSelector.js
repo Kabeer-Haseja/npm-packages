@@ -31,6 +31,7 @@ function CustomChipSelector(props) {
                                 {
                                     backgroundColor: checkSelectedValue ? props?.chipsViewStyle?.backgroundColor : '#F0F5FC',
                                     borderColor: checkSelectedValue ? props?.chipsViewStyle?.borderColor : '#F0F5FC',
+                                    borderWidth:checkSelectedValue ? props?.chipsViewStyle?.borderWidth : 0,
                                     marginEnd: 5,
                                 },
                             ]}
@@ -58,7 +59,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 30,
-        borderWidth: 0.5,
         paddingHorizontal: 15,
         marginTop: 10,
     },

@@ -4,11 +4,15 @@ import CustomDatePicker from './CustomComponents/CustomDatePicker';
 import CustomFormInput from './CustomComponents/CustomFormInput';
 import CustomBottomSheet from './CustomComponents/CustomBottomSheet';
 import CustomChipSelector from './CustomComponents/CustomChipSelector';
+import CustomLink from './CustomComponents/CustomLink';
 
 function App(props) {
     const [selectedCreatedAt, setSelectedCreatedAt] = useState([]);
     const [input, setInput] = useState('Kabeer');
+    
     const [singleSelect, setSingleSelect] = useState([]);
+    const [addLinkName, setAddLinkName] = useState([]);
+    
     const [category, setCategory] = useState([]);
     const categoriesList = [
         {id: 1, name: 'category'},
@@ -29,9 +33,11 @@ function App(props) {
     
     ];
     const singleSelectRef = createRef();
+    const linkRef = createRef();
     
     return (
         <SafeAreaView>
+            <View style={{marginTop:30}}>
             <View style={styles.rowStyle}>
                 <CustomDatePicker
                     title={'created At'}
@@ -71,7 +77,15 @@ function App(props) {
                     multi={true}
                 />
             </View>
-        
+            <View>
+            <CustomLink
+                chipsViewStyle={styles.chipViewStyle}
+                selectedValue={addLinkName}
+                bottomSheetRef={linkRef}
+                onSelectedValue={setAddLinkName}
+                         />
+            </View>
+            </View>
         </SafeAreaView>
     
     );
@@ -87,8 +101,7 @@ const styles=StyleSheet.create({
     chipViewStyle:{
         backgroundColor:'#F0F5FC',
         fontColor:'#ba1f24',
-        borderColor:'#ba1f24',
-        fontWeight:'bold'
-        
+        fontWeight:'bold',
+        borderColor:'#ba1f24'
     }
 })
