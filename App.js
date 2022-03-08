@@ -5,6 +5,7 @@ import CustomFormInput from './CustomComponents/CustomFormInput';
 import CustomBottomSheet from './CustomComponents/CustomBottomSheet';
 import CustomChipSelector from './CustomComponents/CustomChipSelector';
 import CustomLink from './CustomComponents/CustomLink';
+import CustomPicker from './CustomComponents/CustomPicker';
 
 function App(props) {
     const [selectedCreatedAt, setSelectedCreatedAt] = useState([]);
@@ -14,6 +15,8 @@ function App(props) {
     const [addLinkName, setAddLinkName] = useState([]);
     
     const [category, setCategory] = useState([]);
+    const [addFile, setAddFile] = useState([]);
+    
     const categoriesList = [
         {id: 1, name: 'category'},
         {id: 2, name: 'cat2'},
@@ -34,6 +37,7 @@ function App(props) {
     ];
     const singleSelectRef = createRef();
     const linkRef = createRef();
+    const AttachmentRef = createRef();
     
     return (
         <SafeAreaView>
@@ -84,6 +88,16 @@ function App(props) {
                 onSelectedValue={setAddLinkName}
                          />
             </View>
+                <View style={styles.rowStyle}>
+                  <CustomPicker
+                      title={"Attachment"}
+                      bottomSheetRef={AttachmentRef}
+                      selectedValue={addFile}
+                      onSelectedValue={setAddFile}
+                      multi={true}
+                      heading={"Select"}
+                  />
+                </View>
             </View>
         </SafeAreaView>
     
@@ -93,7 +107,6 @@ function App(props) {
 export default App;
 const styles=StyleSheet.create({
     rowStyle:{
-        flexDirection: 'row',
         paddingLeft:20,
         paddingRight:20,
     },
@@ -103,4 +116,5 @@ const styles=StyleSheet.create({
         fontWeight:'bold',
         borderColor:'#ba1f24'
     }
+    
 })
