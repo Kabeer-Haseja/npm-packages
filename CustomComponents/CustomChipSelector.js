@@ -66,6 +66,5 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         marginRight: 5,
-        marginStart: 30,
     },
 });

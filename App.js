@@ -55,7 +55,6 @@ function App(props) {
                         setInput(text);
                     }}
                     textTitleStyle={{fontSize: 16}}
-                    placeholderTextColor={'red'}
                     textInputStyle={{fontWeight: 'bold'}}
                 />
             </View>
@@ -96,7 +95,7 @@ const styles=StyleSheet.create({
     rowStyle:{
         flexDirection: 'row',
         paddingLeft:20,
-        paddingRight:40,
+        paddingRight:20,
     },
     chipViewStyle:{
         backgroundColor:'#F0F5FC',

@@ -2,7 +2,6 @@ import React from 'react';
 import {Image, Linking, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View} from 'react-native';
 import CustomLinkActionSheet from './CustomLinkActionSheet';
 import {IC_CROSS} from '../Assets/Images';
-import A from 'react-native-a';
 
 function CustomLink(props) {
     function showBottomSheet(ref) {
@@ -22,7 +21,6 @@ function CustomLink(props) {
                             backgroundColor: props?.chipsViewStyle ? props?.chipsViewStyle?.backgroundColor : '#F0F5FC',
                             borderColor: props?.chipsViewStyle ? props?.chipsViewStyle?.borderColor : '#F0F5FC',
                             borderWidth:props?.chipsViewStyle ? props?.chipsViewStyle?.borderWidth : 0,
-    
                             marginEnd: 5,
                         },
                     ]}
@@ -59,9 +57,7 @@ function CustomLink(props) {
                                 />
                             </View>
                         </TouchableWithoutFeedback>
-                        
                     }
-                
                 </View>
             </TouchableOpacity>
             <CustomLinkActionSheet

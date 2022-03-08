@@ -55,7 +55,7 @@ export const styles = StyleSheet.create({
     main: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
     },
     imageView: {
         height: 30,
