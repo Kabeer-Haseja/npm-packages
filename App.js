@@ -1,15 +1,24 @@
-import React, {createRef, useState} from 'react';
+import React, {createRef, useEffect, useState} from 'react';
 import {SafeAreaView, View,StyleSheet} from 'react-native';
 import CustomDatePicker from './CustomComponents/CustomDatePicker';
 import CustomFormInput from './CustomComponents/CustomFormInput';
 import CustomBottomSheet from './CustomComponents/CustomBottomSheet';
 import CustomChipSelector from './CustomComponents/CustomChipSelector';
+import CustomLink from './CustomComponents/CustomLink';
+import CustomPicker from './CustomComponents/CustomPicker';
+import CustomBoolean from './CustomComponents/CustomBoolean';
 
 function App(props) {
     const [selectedCreatedAt, setSelectedCreatedAt] = useState([]);
     const [input, setInput] = useState('Kabeer');
+    const [boolValue,setBoolValue]=useState([])
+    
     const [singleSelect, setSingleSelect] = useState([]);
+    const [addLinkName, setAddLinkName] = useState([]);
+    
     const [category, setCategory] = useState([]);
+    const [addFile, setAddFile] = useState([]);
+    
     const categoriesList = [
         {id: 1, name: 'category'},
         {id: 2, name: 'cat2'},
@@ -18,8 +27,6 @@ function App(props) {
         {id: 5, name: 'cat1'},
         {id: 6, name: 'cat1'},
         {id: 7, name: 'cat'},
-    
-    
     ];
     const multiList = [
         {id: 1, name: 'Kaber'},
@@ -29,9 +36,14 @@ function App(props) {
     
     ];
     const singleSelectRef = createRef();
-    
+    const linkRef = createRef();
+    const AttachmentRef = createRef();
+    useEffect(()=>{
+        console.log(boolValue)
+    },[boolValue])
     return (
         <SafeAreaView>
+            <View style={{marginTop:30}}>
             <View style={styles.rowStyle}>
                 <CustomDatePicker
                     title={'created At'}
@@ -49,7 +61,6 @@ function App(props) {
                         setInput(text);
                     }}
                     textTitleStyle={{fontSize: 16}}
-                    placeholderTextColor={'red'}
                     textInputStyle={{fontWeight: 'bold'}}
                 />
             </View>
@@ -68,10 +79,35 @@ function App(props) {
                     options={categoriesList}
                     selectedValue={category}
                     onSelectedValue={setCategory}
-                    multi={true}
                 />
             </View>
-        
+            <View>
+            <CustomLink
+                chipsViewStyle={styles.chipViewStyle}
+                selectedValue={addLinkName}
+                bottomSheetRef={linkRef}
+                onSelectedValue={setAddLinkName}
+                         />
+            </View>
+                <View style={styles.rowStyle}>
+                  <CustomPicker
+                      title={"Attachment"}
+                      bottomSheetRef={AttachmentRef}
+                      selectedValue={addFile}
+                      onSelectedValue={setAddFile}
+                     heading={"Select"}
+                      multi={true}
+                  />
+                </View>
+                <View style={styles.rowStyle}>
+                    <CustomBoolean
+                        selectedValue={boolValue}
+                        onSelectedValue={setBoolValue}
+                        chipsViewStyle={styles.chipViewStyle}
+
+                    />
+                </View>
+            </View>
         </SafeAreaView>
     
     );
@@ -80,15 +116,14 @@ function App(props) {
 export default App;
 const styles=StyleSheet.create({
     rowStyle:{
-        flexDirection: 'row',
         paddingLeft:20,
-        paddingRight:40,
+        paddingRight:20,
     },
     chipViewStyle:{
         backgroundColor:'#F0F5FC',
         fontColor:'#ba1f24',
-        borderColor:'#ba1f24',
-        fontWeight:'bold'
-        
+        fontWeight:'bold',
+        borderColor:'#ba1f24'
     }
+    
 })

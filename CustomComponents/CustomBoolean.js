@@ -1,30 +1,28 @@
-import React from 'react';
-import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-function CustomChipSelector(props) {
-    
-    function checkSingleOrMultipleFilters(selected) {
-        if (props?.multi) {
-            const filtered = props?.selectedValue?.some((item) => item.id === selected.id);
-            if (filtered) {
-                let filteredItems = props?.selectedValue?.filter((item) => item.id !== selected.id);
-                props?.onSelectedValue(filteredItems);
-            } else {
-                let tempArray = [...props?.selectedValue];
-                tempArray.push(selected);
-                props?.onSelectedValue(tempArray);
-            }
-        } else {
-            props?.onSelectedValue([selected]);
+function CustomBoolean(props) {
+        function checkSingleOrMultipleFilters(selected) {
+            
+                props?.onSelectedValue([selected]);
         }
-    }
-    
+    const options=[
+        {
+            id:1,
+            name:'Yes',
+            value:true
+        },
+        {
+            id:2,
+            name:'No',
+            value:false
+        }
+    ]
     return (
         <View style={[styles.chipsView]}>
-            
-            {props?.options?.map((item, index) => {
-                let checkSelectedValue = props.selectedValue.some((selected) => selected.id === item.id);
-                return (
+            {options?.map((item, index) => {
+                let checkSelectedValue = props.selectedValue?.some((selected) => selected.id === item.id);
+                return(
                     <TouchableOpacity key={index} onPress={() => checkSingleOrMultipleFilters(item)}>
                         <View
                             style={[styles.chipsTouchableView,
@@ -44,15 +42,17 @@ function CustomChipSelector(props) {
                                 {item.name}
                             </Text>
                         </View>
+                        
                     </TouchableOpacity>
                 );
             })
             }
         </View>
+    
     );
 }
 
-export default CustomChipSelector;
+export default CustomBoolean;
 const styles = StyleSheet.create({
     chipsTouchableView: {
         height: 40,

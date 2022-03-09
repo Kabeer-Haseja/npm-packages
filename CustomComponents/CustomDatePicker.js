@@ -55,7 +55,7 @@ function CustomDatePicker(props) {
                         </View>
                     </View>
                     <View style={styles.horizontalLineView}/>
-                
+                 
                 </View>
             </TouchableWithoutFeedback>
             <DateTimePickerModal
@@ -74,13 +74,15 @@ export const styles = StyleSheet.create({
     main: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
+        
     },
     textView: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        width: '100%',
+        width:'100%'
+        
     },
     textTitle: {
         fontSize: 14,
@@ -89,22 +91,20 @@ export const styles = StyleSheet.create({
     },
     textTitleOr: {
         padding: 0,
-        borderBottomWidth: 0.2,
         fontWeight: 'bold',
     },
     checkImage: {
         height: 12,
         width: 12,
         tintColor: 'black',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+       },
     horizontalLineView: {
+        flexDirection:'row',
+        alignItems:'center',
         height: 1,
         marginBottom: 5,
         marginTop: 10,
         backgroundColor: '#e8e8e8',
-        width: '100%',
     },
     
 });

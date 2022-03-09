@@ -55,7 +55,7 @@ export const styles = StyleSheet.create({
     main: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
     },
     imageView: {
         height: 30,
@@ -85,7 +85,6 @@ export const styles = StyleSheet.create({
     },
     textTitleOr: {
         padding: 0,
-        borderBottomWidth: 0.2,
         fontWeight: 'bold',
     },
     checkImage: {
