@@ -7,9 +7,11 @@ function CustomPicker(props) {
     function showBottomSheet(ref) {
         ref?.current?.show();
     }
+    function closeBottomSheet(ref) {
+        ref?.current.setModalVisible();
+    }
     
     useEffect(()=>{
-        console.log(props.selectedValue)
     },[props.selectedValue])
     
     function deleteItem(item)
@@ -33,17 +35,11 @@ function CustomPicker(props) {
             
         </View>
          
-            <CustomAttachmentActionSheet
-                bottomSheetRef={props.bottomSheetRef}
-                selectedValue={props.selectedValue}
-                onSelectedValue={props.onSelectedValue}
-                heading={props.heading}
-                multi={props.multi}/>
                     <View style={{paddingTop:10}}>
                         {props.selectedValue.map((item,index)=>{
                             return(
-                                <View style={{flexDirection:'row',justifyContent:'space-between',paddingBottom:5}}>
-                                <Text key={index}>{item.name}</Text>
+                                <View  key={index} style={{flexDirection:'row',justifyContent:'space-between',paddingBottom:5}}>
+                                <Text >{item.name}</Text>
                                     <TouchableWithoutFeedback onPress={() =>deleteItem(item)}
                                     >
                                         <View style={styles.crossView}>
@@ -59,8 +55,17 @@ function CustomPicker(props) {
                         })}
                     
                     </View>
-                
-     
+            <CustomAttachmentActionSheet
+                bottomSheetRef={props.bottomSheetRef}
+                selectedValue={props.selectedValue}
+                onSelectedValue={props.onSelectedValue}
+                heading={props.heading}
+                closeBottomSheet={() => {closeBottomSheet(props?.bottomSheetRef)}}
+        
+                multi={props.multi}/>
+
+
+
         </View>
     );
 }

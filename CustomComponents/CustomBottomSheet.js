@@ -85,7 +85,6 @@ export const styles = StyleSheet.create({
     },
     textTitleOr: {
         padding: 0,
-        borderBottomWidth: 0.2,
         fontWeight: 'bold',
     },
     checkImage: {

@@ -1,4 +1,4 @@
-import React, {createRef, useState} from 'react';
+import React, {createRef, useEffect, useState} from 'react';
 import {SafeAreaView, View,StyleSheet} from 'react-native';
 import CustomDatePicker from './CustomComponents/CustomDatePicker';
 import CustomFormInput from './CustomComponents/CustomFormInput';
@@ -6,10 +6,12 @@ import CustomBottomSheet from './CustomComponents/CustomBottomSheet';
 import CustomChipSelector from './CustomComponents/CustomChipSelector';
 import CustomLink from './CustomComponents/CustomLink';
 import CustomPicker from './CustomComponents/CustomPicker';
+import CustomBoolean from './CustomComponents/CustomBoolean';
 
 function App(props) {
     const [selectedCreatedAt, setSelectedCreatedAt] = useState([]);
     const [input, setInput] = useState('Kabeer');
+    const [boolValue,setBoolValue]=useState([])
     
     const [singleSelect, setSingleSelect] = useState([]);
     const [addLinkName, setAddLinkName] = useState([]);
@@ -25,8 +27,6 @@ function App(props) {
         {id: 5, name: 'cat1'},
         {id: 6, name: 'cat1'},
         {id: 7, name: 'cat'},
-    
-    
     ];
     const multiList = [
         {id: 1, name: 'Kaber'},
@@ -38,7 +38,9 @@ function App(props) {
     const singleSelectRef = createRef();
     const linkRef = createRef();
     const AttachmentRef = createRef();
-    
+    useEffect(()=>{
+        console.log(boolValue)
+    },[boolValue])
     return (
         <SafeAreaView>
             <View style={{marginTop:30}}>
@@ -77,7 +79,6 @@ function App(props) {
                     options={categoriesList}
                     selectedValue={category}
                     onSelectedValue={setCategory}
-                    multi={true}
                 />
             </View>
             <View>
@@ -94,9 +95,17 @@ function App(props) {
                       bottomSheetRef={AttachmentRef}
                       selectedValue={addFile}
                       onSelectedValue={setAddFile}
+                     heading={"Select"}
                       multi={true}
-                      heading={"Select"}
                   />
+                </View>
+                <View style={styles.rowStyle}>
+                    <CustomBoolean
+                        selectedValue={boolValue}
+                        onSelectedValue={setBoolValue}
+                        chipsViewStyle={styles.chipViewStyle}
+
+                    />
                 </View>
             </View>
         </SafeAreaView>

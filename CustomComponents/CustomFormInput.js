@@ -49,7 +49,6 @@ export const styles = StyleSheet.create({
     horizontalLineView: {
         height: 1,
         marginBottom: 5,
-        marginTop: 10,
         backgroundColor: '#e8e8e8',
         width: '100%',
     },
